@@ -1,22 +1,22 @@
-//=================================================
+﻿//=================================================
 //Показать количество строк таблицы vTableName
 //=================================================
 Sub RowCount(vTableName)
-	LET vRowCount = Num(NoOfRows('$(vTableName)'),'# ##0');
+	LET vRowCount = Num(NoOfRows('$(vTableName)'),'# ##0');
 	TRACE (INFO) Current '$(vTableName)' row count: $(vRowCount);
 End Sub
 //=================================================
 //Запомнить и вывести количество строк таблицы vTableName
 //=================================================
 Sub CheckRowCount1(vTableName)
-	LET vCheckRowCount_RowCounter1 = Num(NoOfRows('$(vTableName)'),'# ##0');
+	LET vCheckRowCount_RowCounter1 = Num(NoOfRows('$(vTableName)'),'# ##0');
 	TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter1);
 End Sub
 //=================================================
 //Сравнить количество строк таблицы с тем что было до этого vTableName
 //=================================================
 Sub CheckRowCount2(vTableName)
-	LET vCheckRowCount_RowCounter2 = Num(NoOfRows('$(vTableName)'),'# ##0');
+	LET vCheckRowCount_RowCounter2 = Num(NoOfRows('$(vTableName)'),'# ##0');
 	TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
     if num('$(vCheckRowCount_RowCounter1)')=num('$(vCheckRowCount_RowCounter2)') then
     TRACE (INFO) Задвоения строк не обнаружено;
@@ -29,7 +29,7 @@ End Sub
 //Сравнить количество строк таблицы с тем что было до этого vTableName и отменить загрузку если есть задвоение
 //=================================================
 Sub CheckRowCount2Stop(vTableName)
-	LET vCheckRowCount_RowCounter2 = Num(NoOfRows('$(vTableName)'),'# ##0');
+	LET vCheckRowCount_RowCounter2 = Num(NoOfRows('$(vTableName)'),'# ##0');
 	TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
     if num('$(vCheckRowCount_RowCounter1)')=num('$(vCheckRowCount_RowCounter2)') then
     TRACE (INFO) Задвоения строк не обнаружено;
