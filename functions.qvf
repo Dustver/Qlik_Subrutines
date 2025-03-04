@@ -20,7 +20,7 @@ Sub CheckRowCount2(vTableName)
 	TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
     if num('$(vCheckRowCount_RowCounter1)')=num('$(vCheckRowCount_RowCounter2)') then
     	TRACE;TRACE (INFO) Задвоения строк не обнаружено;TRACE;
-    elseif num('$(vCheckRowCount_RowCounter1)')>num('$(vCheckRowCount_RowCounter2)') then
+    elseif num('$(vCheckRowCount_RowCounter1)')<num('$(vCheckRowCount_RowCounter2)') then
     	TRACE;TRACE (ALERT) ВНИМАНИЕ ОБНАРУЖЕНО ЗАДВОЕНИЕ ДАННЫХ В ТАБЛИЦЕ '$(vTableName)'! ОПЕРАЦИЯ ДАЕТ НЕКОРРЕКТНЫЙ РЕЗУЛЬТАТ!;
         TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);TRACE;
     else
