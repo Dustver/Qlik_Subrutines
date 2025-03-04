@@ -1,4 +1,4 @@
-﻿//=================================================
+//=================================================
 //Показать количество строк таблицы vTableName
 //=================================================
 Sub RowCount(vTableName)
@@ -19,10 +19,13 @@ Sub CheckRowCount2(vTableName)
 	LET vCheckRowCount_RowCounter2 = Num(NoOfRows('$(vTableName)'),'# ##0', ',', ' ');
 	TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
     if num('$(vCheckRowCount_RowCounter1)')=num('$(vCheckRowCount_RowCounter2)') then
-    TRACE (INFO) Задвоения строк не обнаружено;
+    	TRACE;TRACE (INFO) Задвоения строк не обнаружено;TRACE;
+    elseif num('$(vCheckRowCount_RowCounter1)')>num('$(vCheckRowCount_RowCounter2)') then
+    	TRACE;TRACE (ALERT) ВНИМАНИЕ ОБНАРУЖЕНО ЗАДВОЕНИЕ ДАННЫХ В ТАБЛИЦЕ '$(vTableName)'! ОПЕРАЦИЯ ДАЕТ НЕКОРРЕКТНЫЙ РЕЗУЛЬТАТ!;
+        TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);TRACE;
     else
-    TRACE (ALERT) ВНИМАНИЕ ОБНАРУЖЕНО ЗАДВОЕНИЕ ДАННЫХ В ТАБЛИЦЕ '$(vTableName)'! ОПЕРАЦИЯ ДАЕТ НЕКОРРЕКТНЫЙ РЕЗУЛЬТАТ!;
-    TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
+        TRACE;TRACE (ALERT) ВНИМАНИЕ ОБНАРУЖЕНО УМЕНЬШЕНИЕ ДАННЫХ В ТАБЛИЦЕ '$(vTableName)'! ВОТ ТАК ДЕЛА! ОПЕРАЦИЯ ДАЕТ НЕКОРРЕКТНЫЙ РЕЗУЛЬТАТ!;
+        TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);TRACE;
     endif;
 End Sub
 //=================================================
@@ -31,12 +34,12 @@ End Sub
 Sub CheckRowCount2Stop(vTableName)
 	LET vCheckRowCount_RowCounter2 = Num(NoOfRows('$(vTableName)'),'# ##0', ',', ' ');
 	TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
-    if num('$(vCheckRowCount_RowCounter1)')=num('$(vCheckRowCount_RowCounter2)') then
-    TRACE (INFO) Задвоения строк не обнаружено;
+        if num('$(vCheckRowCount_RowCounter1)')=num('$(vCheckRowCount_RowCounter2)') then
+        TRACE;TRACE (INFO) Задвоения строк не обнаружено;TRACE;
     else
-    TRACE (ALERT) ВНИМАНИЕ ОБНАРУЖЕНО ЗАДВОЕНИЕ ДАННЫХ В ТАБЛИЦЕ '$(vTableName)'! ОПЕРАЦИЯ ДАЕТ НЕКОРРЕКТНЫЙ РЕЗУЛЬТАТ!;
-    TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);
-    drop table exception10938;
+        TRACE;TRACE (ALERT) ВНИМАНИЕ ОБНАРУЖЕНО ЗАДВОЕНИЕ ДАННЫХ В ТАБЛИЦЕ '$(vTableName)'! ОПЕРАЦИЯ ДАЕТ НЕКОРРЕКТНЫЙ РЕЗУЛЬТАТ!;
+        TRACE (INFO) Таблица '$(vTableName)' содержит строк: $(vCheckRowCount_RowCounter2);TRACE;
+        drop table exception10938;
     endif;
 End Sub
 //=================================================
